@@ -1,4 +1,4 @@
-#:3D Point Cloud Denoising via Deep Neural Network based Local Surface Estimation
+# 3D Point Cloud Denoising via Deep Neural Network based Local Surface Estimation
 
 by Chaojing Duan, Siheng Chen and Jelena Kovacevic
 
