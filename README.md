@@ -2,6 +2,8 @@
 
 by Chaojing Duan, Siheng Chen and Jelena Kovacevic
 
+The code is written by Muqiao yang.
+
 Introduction
 This repository is for our ICASSP 2019 paper '3D Point Cloud Denoising via Deep Neural Network based Local Surface Estimation'. The code is modified from PointNet and FoldingNet.
 
