@@ -22,7 +22,7 @@ https://github.com/yulequan/PU-Net
 
 Please cite their papers if you use their dataset to train/test.
 
-Experiments
+## Experiments
 ### With feature transform
 ```
 python3.6 utils/train.py --path <dataset path> --filename <file name> --nepoch <num of epochs> --feature_transform
