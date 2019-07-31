@@ -186,45 +186,7 @@ for epoch in range(opt.nepoch):
             loss += feature_transform_regularizer(trans_feat) * 0.001
         loss.backward()
         optimizer.step()
-        print(loss1)
-        print(loss2)
-        # print('[%d: %d/%d] train loss: %f' % (epoch, i, num_batch, loss.item()))
 
     torch.save(classifier.state_dict(), '%s/seg_model_%s_%d.pth' % (opt.outf, opt.class_choice, epoch))
     if (epoch+1) == 20:
         eval(classifier, test_dataset)
-        print(loss2)
-
-# i = 0
-# npoints = dataset.npoints
-# pc_xyz_noise = test_dataset.noise_xyz[i, :, :][:, None]
-# pc_xyz_denoise = test_dataset.denoise_xyz[i, :, :][:, None]
-# normal_vec = test_dataset.uvw[i, :, :][:, None]
-# pc_xyz_noise = pc_xyz_noise.transpose(0, 2, 1)
-# pc_xyz_noise = torch.tensor(pc_xyz_noise).cuda()
-# print(pc_xyz_noise.shape)
-# output, _, _ = classifier(pc_xyz_noise)
-# print(output.shape)
-# output = output.view(-1, num_classes)
-
-# pc_xyz_noise = pc_xyz_noise.view(-1, 3)
-# a_tp = torch.einsum("mk, mk -> m", output[:, 0:-1], pc_xyz_noise).view(-1, 1)
-# pred = pc_xyz_noise - (a_tp * output[:, 0:-1] - output[:, -1][:, None] * output[:, 0:-1])
-# pred = pred.detach().cpu().numpy()
-# output = output.view(-1, npoints, num_classes).detach().cpu().numpy()
-# x = pred[:, 0]
-# y = pred[:, 1]
-# u = output[:, :, 0]
-# v = output[:, :, 1]
-# fig, ax = plt.subplots()
-# ax.quiver(x, y, u, v)
-# plt.savefig("denoised_1024.png")
-
-# x = pc_xyz_denoise[:, :, 0]
-# y = pc_xyz_denoise[:, :, 1]
-# u = normal_vec[:, :, 0]
-# v = normal_vec[:, :, 1]
-# fig, ax = plt.subplots()
-# ax.quiver(x, y, u, v)
-# plt.savefig("groundtruth_1024.png")
-# print("snr:", snr(pred, pc_xyz_noise.detach().cpu().numpy()))
